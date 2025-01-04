@@ -6,9 +6,7 @@ import org.xrpl.xrpl4j.codec.addresses.KeyType
 import org.xrpl.xrpl4j.codec.addresses.UnsignedByteArray
 import org.xrpl.xrpl4j.crypto.keys.PrivateKey
 import org.xrpl.xrpl4j.crypto.keys.PublicKey
-import org.xrpl.xrpl4j.model.client.accounts.AccountInfoResult
 import org.xrpl.xrpl4j.model.ledger.AccountRootObject
-import org.xrpl.xrpl4j.model.transactions.XrpCurrencyAmount
 
 data class Wallet(
     val id: UUID,
