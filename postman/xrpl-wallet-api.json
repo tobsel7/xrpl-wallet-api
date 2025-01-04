@@ -132,6 +132,49 @@
 			"response": []
 		},
 		{
+			"name": "Payments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{xrplWalletApiUrl}}/wallets/{{walletId}}/payments",
+					"host": [
+						"{{xrplWalletApiUrl}}"
+					],
+					"path": [
+						"wallets",
+						"{{walletId}}",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Wallet By Name",
 			"event": [
 				{
@@ -179,7 +222,7 @@
 			"response": []
 		},
 		{
-			"name": "XRP Transfer",
+			"name": "Payment",
 			"event": [
 				{
 					"listen": "test",
@@ -197,7 +240,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"destination\": \"rwmmJ6qB7Jb87SSY2HhNFKf2LzwP7QgEbN\",\n    \"xrpDropsAmount\": 500\n}",
+					"raw": "{\n    \"destination\": \"rLtwQRCHdvQNagkVsmoZozwvYH62qhLNKu\",\n    \"amount\": {\n        \"value\": \"10.00\",\n        \"currency\": \"XRP\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -205,14 +248,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{xrplWalletApiUrl}}/wallets/{{walletId}}/transfers",
+					"raw": "{{xrplWalletApiUrl}}/wallets/{{walletId}}/payments",
 					"host": [
 						"{{xrplWalletApiUrl}}"
 					],
 					"path": [
 						"wallets",
 						"{{walletId}}",
-						"transfers"
+						"payments"
 					]
 				}
 			},

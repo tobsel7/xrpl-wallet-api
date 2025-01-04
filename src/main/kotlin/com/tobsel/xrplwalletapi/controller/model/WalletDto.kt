@@ -10,16 +10,18 @@ data class WalletCreationDto(
 data class WalletDto(
     val id: UUID,
     val name: String,
-    val xrpDropsBalance: Long,
-    val publicAddress: String
+    val publicAddress: String,
+    val balances: List<AmountDto>
 ) {
 
     companion object {
         fun from(wallet: Wallet) = WalletDto(
             id = wallet.id,
             name = wallet.name,
-            xrpDropsBalance = wallet.ledgerAccountInfo.balance().value().toLong(),
-            publicAddress = wallet.publicKey.deriveAddress().value()
+            publicAddress = wallet.publicKey.deriveAddress().value(),
+            balances = listOf(
+                AmountDto.from(wallet.ledgerAccountInfo.balance())
+            )
         )
     }
 }

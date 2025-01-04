@@ -1,6 +1,5 @@
 package com.tobsel.xrplwalletapi.controller
 
-import com.tobsel.xrplwalletapi.controller.model.TransferInitiationDto
 import com.tobsel.xrplwalletapi.controller.model.WalletDto
 import com.tobsel.xrplwalletapi.controller.model.WalletCreationDto
 import com.tobsel.xrplwalletapi.service.WalletService
@@ -31,14 +30,5 @@ class WalletController(private val walletService: WalletService) {
     @GetMapping("/{walletId}")
     fun getWallet(@PathVariable walletId: UUID): WalletDto {
         return WalletDto.from(walletService.getWallet(walletId))
-    }
-
-    @PostMapping("/{walletId}/transfers")
-    fun sendXrp(@PathVariable walletId: UUID, @RequestBody transferInitiation: TransferInitiationDto) {
-        walletService.transferXrp(
-            walletId,
-            transferInitiation.destination,
-            transferInitiation.xrpDropsAmount
-        )
     }
 }
