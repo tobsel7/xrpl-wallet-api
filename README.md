@@ -46,3 +46,8 @@ Make sure to set the active profile to `local` in the run configuration.
 ### Accessing the API
 
 Use the Postman collection in the `postman` directory to interact with the API.
+
+### View transactions on the XRPL blockain
+
+All the transactions performed by the application can be viewed on the XRPL testnet explorer: 
+[https://testnet.xrpl.org/](https://testnet.xrpl.org/)
