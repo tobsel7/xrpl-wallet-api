@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/xrpl
+    username: postgres
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+xrpl:
+  url: https://s.altnet.rippletest.net:51234
+  faucetUrl: https://faucet.altnet.rippletest.net

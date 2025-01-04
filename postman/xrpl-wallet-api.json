@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "57ca56b9-b7c6-49b3-9598-2e577cfc8ba9",
+		"name": "XRPL Wallet API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25744556"
+	},
+	"item": [
+		{
+			"name": "Wallet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json();",
+							"",
+							"pm.environment.set(\"walletId\", response.id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"my-test-wallet\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{xrplWalletApiUrl}}/wallets",
+					"host": [
+						"{{xrplWalletApiUrl}}"
+					],
+					"path": [
+						"wallets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Wallets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json();",
+							"",
+							"pm.environment.set(\"walletId\", response[0].id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{xrplWalletApiUrl}}/wallets",
+					"host": [
+						"{{xrplWalletApiUrl}}"
+					],
+					"path": [
+						"wallets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Wallet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{xrplWalletApiUrl}}/wallets/{{walletId}}",
+					"host": [
+						"{{xrplWalletApiUrl}}"
+					],
+					"path": [
+						"wallets",
+						"{{walletId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Wallet By Name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{xrplWalletApiUrl}}/wallets?name=test",
+					"host": [
+						"{{xrplWalletApiUrl}}"
+					],
+					"path": [
+						"wallets"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "XRP Transfer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"destination\": \"rwmmJ6qB7Jb87SSY2HhNFKf2LzwP7QgEbN\",\n    \"xrpDropsAmount\": 500\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{xrplWalletApiUrl}}/wallets/{{walletId}}/transfers",
+					"host": [
+						"{{xrplWalletApiUrl}}"
+					],
+					"path": [
+						"wallets",
+						"{{walletId}}",
+						"transfers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
