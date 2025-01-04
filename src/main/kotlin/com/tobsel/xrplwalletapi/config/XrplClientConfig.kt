@@ -19,7 +19,7 @@ class XrplClientConfig(xrplClientProperties: XrplClientProperties) {
     }
 
     @Bean
-    fun xrplFaucetClient(xrplClientProperties: XrplClientProperties): FaucetClient? {
+    fun xrplFaucetClient(xrplClientProperties: XrplClientProperties): FaucetClient {
         return FaucetClient.construct(faucetUrl)
     }
 }
